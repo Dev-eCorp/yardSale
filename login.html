@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet"> 
-    <title>Reset password</title>
+    <title>Login</title>
     <style>
         html {
             font-size: 6.25%;
@@ -31,7 +31,7 @@
             font-size: 16rem;
         }
 
-        .email-sent {
+        .login {
             width: 100%;
             height: 100vh;
             display: grid;
@@ -42,7 +42,6 @@
             display: grid;
             grid-template-rows: auto 1fr auto;
             width: 300rem;
-            justify-items: center;
         }
 
         .logo {
@@ -52,34 +51,38 @@
             display: none;
         }
 
-        .title {
-            font-size: var(--size-lg);
-            margin-bottom: 12rem;
-            text-align: center;
-        }
-
-        .subtitle {
-            color: var(--very-light-pink);
-            font-size: var(--size-md);
-            font-weight: 300;
-            margin-top: 0;
-            margin-bottom: 32rem;
-            text-align: center;
-        }
-
-        .email-image {
-            width: 132rem;
-            height: 132rem;
-            border-radius: 50%;
-            background-color: var(--text-input-field);
+        .form {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 24px;
+            flex-direction: column;
         }
 
-        .email-image img {
-            width: 80rem;
+        .label {
+            font-size: var(--size-sm);
+            font-weight: bold;
+            margin-bottom: 4rem;
+        }
+
+        .input {
+            background-color: var(--text-input-field);
+            border: none;
+            border-radius: 8rem;
+            height: 30rem;
+            font-size: var(--size-md);
+            padding: 8rem;
+            margin-bottom: 12rem;
+        }
+
+        
+        .input-email {
+            margin-bottom: 22rem;
+        }
+
+        .form a {
+            text-decoration: none;
+            font-size: var(--size-sm);
+            color: var(--hospital-green);
+            text-align: center;
+            margin-bottom: 52rem;
         }
 
         .primary-button {
@@ -99,45 +102,48 @@
             margin-bottom: 30rem;
         }
 
-        .text-resend {
-            font-size: var(--size-sm);
-
-        }
-
-        .text-resend span {
-            color: var(--very-light-pink);
-        }
-
-        .text-resend a {    
+        .secondary-button {
+            background-color: var(--white);
+            border-radius: 8rem;
+            border: 1px solid var(--hospital-green);
             color: var(--hospital-green);
-            text-decoration: none;
+            width: 100%;
+            cursor: pointer;
+            font-size: var(--size-md);
+            font-weight: bold;
+            height: 50rem;
         }
 
         @media (max-width: 640px) {
             .logo {
                 display: block;
             }
+
+            .secondary-button {
+                margin-top: 150rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="email-sent">
+    <div class="login">
         <div class="container">
             <img src="./assets/logos/logo_yard_sale.svg" alt="logo" class="logo">
 
-            <h1 class="title">Email has been sent!</h1>
-            <p class="subtitle">Please check your imbox for instructions on how to reset the password</p>
+            <form action="/" class="form">
+                <label for="email" class="label">Email addres</label>
+                <input type="text" id="email" placeholder="example@example.com" class="input input-email">
 
-            <div class="email-image">
-                <img src="./assets/icons/email.svg" alt="email">
-            </div>
+                <label for="passwd" class="label">Password</label>
+                <input type="text" id="passwd" placeholder="********" class="input input-passwd">
 
-            <button class="primary-button login-button">Login</button>
+                <input type="submit" value="Log in" class="primary-button login-button"> 
 
-            <p class="text-resend">
-                <span>Didn't receive the email?</span>
-                <a href="#">Resend</a>
-            </p>
+                <a href="/">Forgot my password</a>
+
+            </form>
+
+            <button class="secondary-button signup-button">Sign up</button>
         </div>
     </div>
 </body>
